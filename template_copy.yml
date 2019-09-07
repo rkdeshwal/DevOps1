@@ -1,0 +1,15 @@
+---
+- name: diff between template and copy
+  hosts: test
+  vars_files:
+   - var.yml
+  become: yes
+  become_method: sudo
+  tasks:
+   - copy:
+      src: /myplaybooks/new.txt
+      dest: /tmp
+   - template:
+       src: /myplaybooks/new.txt
+       dest: /etc
+
