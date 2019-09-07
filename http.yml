@@ -1,10 +1,12 @@
 ---
 - name:  This playbook will install http stack
   hosts: test
+  vars:
+    http_port: 80
   become: yes
   become_method: sudo
   tasks:
-    - name: This module will install httpd
+    - name: This module will install httpd {{http_port}}
       yum:
        name: httpd
        state: latest
@@ -12,7 +14,7 @@
       tags:
         - install
  
-   handlers:
+  handlers:
     - name: restart web services
       service:
        name: httpd
