@@ -1,8 +1,8 @@
 ---
 - name:  This playbook will install http stack
   hosts: test
-  vars:
-    http_port: 80
+  vars_files:
+     - var.yml
   become: yes
   become_method: sudo
   tasks:
