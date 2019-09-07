@@ -8,13 +8,12 @@
       yum:
        name: httpd
        state: latest
+      notify: "restart web services"
       tags:
         - install
  
-    - name: Start httpd service 
+   handlers:
+    - name: restart web services
       service:
        name: httpd
        state: started
-       enabled: yes
-      tags:
-        - service
