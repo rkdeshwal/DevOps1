@@ -1,0 +1,12 @@
+---
+- name: Testing loops
+  hosts: test
+  tasks:
+  - name: testing loops
+    user:
+     name: "{{item}}"
+     state: present
+    loop:
+      - new1
+      - new2
+      - new3
