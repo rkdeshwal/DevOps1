@@ -6,7 +6,7 @@
     user:
      name: "{{item}}"
      state: present
-    loop:
+    with_items:
       - new1
       - new2
       - new3
